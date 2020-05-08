@@ -28,7 +28,11 @@ def callback(request):
                     mtext = event.message.text
                     if mtext == '@傳送文字':
                         func.sendText(event)
+                    if mtext == '@彈性配置':
+                        func.sendFlex(event)
     
+                    elif mtext[:3] == '###' and len(mtext) > 3:
+                         func.manageForm(event, mtext)
                     elif mtext == '@傳送圖片':
                         func.sendImage(event)
                     elif mtext == '@傳送聲音':
